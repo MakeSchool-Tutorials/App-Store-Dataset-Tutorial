@@ -25,4 +25,4 @@ A strong part of data science is being able to formulate critical questions base
 - Jupyter Notebooks
 - Python 3.6+
 
-To get started, simply fork this repo and set up a local copy. 
+To get started, simply fork this repo and set up a local copy! 
