@@ -16,7 +16,7 @@ Consider the following questions as you work through the tutorial:
 - How many mobile apps are games and what is the general categorical distribution of apps by genre?
 - What are the most popular mobile games by total popular rating?
 
-As you complete the tutorial, write down answers you find to these questions and be sure to ask your own! 
+As you complete the tutorial, **write down answers you find to these questions** and be sure to ask your own! 
 
 A strong part of data science is being able to formulate critical questions based off of observations you see in unknown data. 
 
@@ -40,7 +40,7 @@ We'll explore trends among mobile app data, including <strong>most popular mobil
 - Tutorial repo was forked and set up successfully.
 
 
-Open up a Jupyter Notebook (See Tutorial 0 (link here) for setup instructions.) and enter the following into the first cell to set up our dependencies needed for basic data analysis and visualization.
+Open up a Jupyter Notebook (See Tutorial 0 (link here) for setup instructions.) and <u>enter the following into the first cell</u> to set up our dependencies needed for basic data analysis and visualization.
 
 ```py
 # Pandas is a library for basic data analysis
@@ -58,7 +58,7 @@ import seaborn as sb
 
 Here, we run some basic setup for some visualization work in SeaBorn and MatPlotLib.
 
-Don't worry about what this all means now: simply plug this into your next cell for some data visualization setup.
+Don't worry about what this all means now: simply <u>plug this into your next cell</u> for some data visualization setup.
 
 ```py
 sns.set(style="white", context="notebook", palette="deep")
@@ -104,52 +104,52 @@ Here, we'll grab our file (AppleStore.csv) and call it as a <strong>DataFrame</s
 FILEPATH = "../datasets/AppleStore.csv"
 
 df = pd.read_csv(FILEPATH, index_col="Unnamed: 0")
-df.head()
+df
 ```
 
 Your output in Jupyter should be the following:
 
 ![screenshot01-dfhead](../media/screenshot01_dfhead.png?raw=true)
 
-### One important thing to check for in any dataset is the occurrence of NULL VALUES.
+Look over the data as a whole and see if you can detect any interesting trends or patterns across the data. 
 
-**NULL VALUES** are values that are empty or that do not exist. 
+Any convoluted data?
 
-Usually this occurs from empty cells in Excel sheets or failing to preprocess datasets effectively to check where no recorded data exists.
+Any repeated data?
 
-```py
-# We can check empty value occurrences across our dataset like so:
+Any redundant data?
 
-df.isnull()
-```
+Any data that's difficult to understand?
 
-The output of the previous cell should be the following:
+All these realizations from a quick glance at the information is crucial to establish a good relationship with your data at the start. 
 
-![screenshot02-nulldata](../media/screenshot02_nulldata.png?raw=true)
+Your intuition will lead you to deeper questions and important revelations as you sift through more and more data in attempts to answer said questions. 
 
-As you may have noticed, however, the output is a little... dense. 
+That being said, time for a quick side note...
 
-We really just want to know about the dataset as a whole! 
+---
 
-To remedy that, we'll run the following line:
+### Quick Note on Data Cleaning:
 
-```py
-df.isnull().sum()
-```
+Before we go any further, it's important to make one very important assumption regarding the cleanliness of data in this practice tutorial. 
 
-This tells us that *no null values occur across our dataset*. 
+Right now, the majority of your data science work focuses on *data analysis* and *data visualization* - not easy work, especially if your data is **unclean**. 
 
-This is great! 
+Unclean data is indicative of an important factor now at play: important trends or patterns that exist among your data may be *obscured* by lack of data clarity. 
 
-You should see the following:
+This could be for a multitude of reasons, including irregularities in data types, inconsistencies in how data was recorded, or the presence of inappropriate data values such as *null values*. (Remember that term - it'll come up again next tutorial!)
 
-![screenshot03_nullsum](../media/screenshot03_nullsum.png?raw=true)
+It is crucial as a data scientist to always **question the data in front of you** from as many angles possible, including its validity and cleanliness. 
 
-Further in the course, we'll work with datasets that contain null and unclean values - it'll be your responsibility to preprocess and clean data before getting to work with visualizing or modeling them. 
+In this tutorial, we simply want to instill that sense of critical thinking in you, but do not wish to throw some complex data cleaning challenges at you just yet. 
 
-But for now, consider us merciful. Onward!
+However, keep in mind ways that the data in this tutorial could be potentially obscured to make your job tougher; you'll find that industry data science often spends a lot of time tackling the issue of data cleaning and processing. 
 
-### Now that we know the data is relatively clean, let's take a look at the actual data it contains! 
+---
+
+Now that we're done rambling, let's get back into checking out the values in our data! 
+
+> NOTE: Write .iloc() and accessory location function tutorial here *before* the .describe() method.
 
 Run the following in a new cell to quickly show general column-formatted information on the dataset.
 
