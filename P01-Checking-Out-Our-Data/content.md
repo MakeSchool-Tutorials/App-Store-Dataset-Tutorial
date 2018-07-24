@@ -31,13 +31,12 @@ In this tutorial, we'll quickly explore a simple dataset designed to cultivate y
 
 As many of you are mobile developers, we'll be exploring the [App Store Mobile Apps](https://www.kaggle.com/ramamet4/app-store-apple-data-set-10k-apps/version/2) dataset from Kaggle! No need to download or set anything up; if you followed the setup instructions correctly, you should have the dataset already downloaded in your local directory! 
 
-We'll explore trends among mobile app data, including <strong>most popular mobile apps/games</strong>, <strong>top rated games</strong>, and <strong>free vs. paid mobile apps</strong>. 
+We'll explore trends among mobile app data, including **most popular mobile apps/games**, **top rated games**, and **free vs. paid mobile apps**. 
 
 ### Before moving any further, ensure you have the following prerequisites met:
 - Anaconda Navigator installed and running successfully.
 - Jupyter works successfully.
 - Python 3.6+ installed and working.
-- Tutorial repo was forked and set up successfully.
 
 
 Open up a Jupyter Notebook (See Tutorial 0 (link here) for setup instructions.) and <u>enter the following into the first cell</u> to set up our dependencies needed for basic data analysis and visualization.
@@ -113,13 +112,15 @@ Your output in Jupyter should be the following:
 
 Look over the data as a whole and see if you can detect any interesting trends or patterns across the data. 
 
-Any convoluted data?
+Some good questions to keep in mind: 
 
-Any repeated data?
+- Any convoluted data?
 
-Any redundant data?
+- Any repeated data?
 
-Any data that's difficult to understand?
+- Any redundant data?
+
+- Any data that's difficult to understand?
 
 All these realizations from a quick glance at the information is crucial to establish a good relationship with your data at the start. 
 
@@ -129,7 +130,7 @@ That being said, time for a quick side note...
 
 ---
 
-### Quick Note on Data Cleaning:
+### **Quick Note on Data Cleaning**:
 
 Before we go any further, it's important to make one very important assumption regarding the cleanliness of data in this practice tutorial. 
 
@@ -149,7 +150,87 @@ However, keep in mind ways that the data in this tutorial could be potentially o
 
 Now that we're done rambling, let's get back into checking out the values in our data! 
 
-> NOTE: Write .iloc() and accessory location function tutorial here *before* the .describe() method.
+Let's take a look at the very first app in our dataset and see some of its information. 
+
+We can see the information from the very first app using either of the following two commands:
+
+```py
+df.iloc[0]
+```
+
+```py
+df.loc[1]
+```
+
+Both commands should return data for the app *PAC-MAN Premium*. 
+
+*.iloc[ ]* and *.loc[ ]* are powerful selector tools in Pandas that allow you to view either a single or multiple rows, columns, and/or cells in a dataset. 
+
+You may be wondering what the difference is between *.iloc[ ]* and *.loc[ ]*? 
+
+Let's explore that using the example of the number **3**. 
+
+When I run the following command: 
+
+```py
+df.iloc[3]
+```
+
+Pandas returns the data for the app *eBay: Best App to Buy, Sell, Save! Online Shopping*. 
+
+> NOTE: Include image sample for iloc[3] returning eBay data.
+
+However, if you notice carefully, the *eBay* app appears in the **fourth position** in the original dataframe. 
+
+**Why is this the case?**
+
+Well, it turns out that *.iloc[ ]* is useful for selecting *data by index*. 
+
+Since Python (like most languages), has zero-indexed arrays, the input value **3** refers to the **fourth** row of the dataset! 
+
+Let's contrast that with the following command:
+
+```py
+df.loc[3]
+```
+
+In this case, Pandas returns the data for the app *WeatherBug - Local Weather, Radar, Apps, Alerts*. 
+
+**Why is this the case?**
+
+Simply put, *loc[ ]* is useful for selecting *data by label*. 
+
+This means that the original label of the data as defined by its leftmost column becomes the selection value. 
+
+Therefore, when we ran *df.loc[3]*, rather than selecting the row defined by the third index, it selected the row defined by the number **3** occurring in the leftmost column, which happens to be the second index!
+
+If this seems tricky, don't worry.
+
+Even the most advanced Python developers and data scientists can trip up these commands. Practice makes perfect! 
+
+These selector methods also support *slicing*. 
+
+Try running either of the following:
+
+```py
+df.iloc[:3]
+```
+
+```py
+df.loc[:3]
+```
+
+Either one should return you the first three rows appearing in the dataset - accurately sliced from the first data value, as your slice parameter indicates. 
+
+Ask yourself the following: *why would both slicing index and label selectors return the same output*? 
+
+---
+
+By the way, those selectors seem great, but imagine trying to get general information about your entire dataset that way. 
+
+Seems impractical, right?
+
+Pandas agrees - that's why it offers a far better way to grab immediate descriptive statistics on *all columns* across your dataset in a highly visual manner. 
 
 Run the following in a new cell to quickly show general column-formatted information on the dataset.
 
@@ -222,6 +303,10 @@ df.tail()
 You should see the following:
 
 ![screenshot07_dftail](../media/screenshot07_dftail.png?raw=true)
+
+Doesn't this look familiar to some of the original commands we played with, including *.describe( )*? 
+
+Pandas is full of these little gems: tools and tricks that optimize certain tasks, like looking at the beginning few elements of a dataset. Use them wisely! 
 
 ## Basic Visualizations
 
@@ -559,6 +644,12 @@ Think about some of the questions you ended up answering in this tutorial.
 - How many mobile apps are games and what is the general categorical distribution of <strong>apps by genre</strong>?
 - What are the <strong>most popular mobile games</strong> by total popular rating? 
 
-### STRETCH CHALLENGE:
 
-Answer these questions in a custom Markdown or text file and be prepared to share your responses with others. 
+## **Answer these questions in a custom Markdown or text file and be prepared to share your responses with others.**
+
+---
+
+## Stretch Challenges
+
+- Come up with at least **five more questions** from the dataset. (You do not have to answer them!)
+- Explore the SeaBorn documentation and construct at least **one additional unique visualization**. 
