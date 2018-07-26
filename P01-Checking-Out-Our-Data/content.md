@@ -1,14 +1,32 @@
 ### Welcome to Part 1 of the tutorial series on basic exploratory data science! 
 
-For this tutorial, navigate to the /notebooks/ folder and create a new Jupyter notebook file.
+> NOTE: Explicitly point out the difference between data science tutorials and other web/app tutorials. 
 
-In this course, you'll be working primarily with <strong>Jupyter Notebooks</strong>, a type of interactive Python simulations where you'll be able to easily manipulate, visualize, and model data. 
+This tutorial is geared towards introductory data science students at the Make School Product College. 
+
+You should have the following prerequisite skills:
+
+- Basic Python Development Skills
+- Basic/Intermediate App Development Skills
+- Basic Communication and Presentation Skills
+
+You may realize as this course goes on that it does not have the same continuous project-based approach as many other Product College courses.
+
+That's because this course is best taught by working through dataset after dataset. 
+
+While you'll be able to apply data science skills into any app you build, it is not directly project-focused. 
+
+---
+
+For this tutorial, navigate to the `notebooks/ ` folder and create a new Jupyter notebook file.
+
+In this course, you'll be working primarily with **Jupyter Notebooks**, a type of interactive Python simulations where you'll be able to easily manipulate, visualize, and model data. 
 
 <br>
 
-### <strong>EDA: Mobile App Data</strong>
+### **EDA: Mobile App Data**
 
-In this tutorial, we'll start you off with a nod towards our mobile developers and roots as a mobile game academy by exploring a <strong>curated dataset on over 10k mobile apps</strong> on the app store. 
+In this tutorial, we'll start you off with a nod towards our mobile developers and roots as a mobile game academy by exploring a **curated dataset on over 10k mobile apps** on the app store. 
 
 Consider the following questions as you work through the tutorial:
 - What's the average byte size of mobile apps?
@@ -95,7 +113,7 @@ Run the following command to navigate to the last location: the <strong>starting
 % cd -
 ```
 
-Here, we'll grab our file (AppleStore.csv) and call it as a <strong>DataFrame</strong> – a Pandas-specific array-like object that's very useful for visually representing and interpreting data in a programmatic manner.
+Here, we'll grab our file (`AppleStore.csv`) and call it as a <strong>DataFrame</strong> – a Pandas-specific array-like object that's very useful for visually representing and interpreting data in a programmatic manner.
 
 ```py
 # NOTE: Must be in the /tutorials/ directory. (Not the /datasets/ directory.)
@@ -114,13 +132,13 @@ Look over the data as a whole and see if you can detect any interesting trends o
 
 Some good questions to keep in mind: 
 
-- Any convoluted data?
+- Any *convoluted* data?
 
-- Any repeated data?
+- Any *repeated* data?
 
-- Any redundant data?
+- Any *redundant* data?
 
-- Any data that's difficult to understand?
+- Any data that's *difficult to understand*?
 
 All these realizations from a quick glance at the information is crucial to establish a good relationship with your data at the start. 
 
@@ -154,6 +172,8 @@ Let's take a look at the very first app in our dataset and see some of its infor
 
 We can see the information from the very first app using either of the following two commands:
 
+> NOTE: Explicitly state to run this in Jupyter for each of the next few cells. 
+
 ```py
 df.iloc[0]
 ```
@@ -164,9 +184,9 @@ df.loc[1]
 
 Both commands should return data for the app *PAC-MAN Premium*. 
 
-*.iloc[ ]* and *.loc[ ]* are powerful selector tools in Pandas that allow you to view either a single or multiple rows, columns, and/or cells in a dataset. 
+`.iloc[ ]` and `.loc[ ]` are powerful selector tools in Pandas that allow you to view either a single or multiple rows, columns, and/or cells in a dataset. 
 
-You may be wondering what the difference is between *.iloc[ ]* and *.loc[ ]*? 
+You may be wondering what the difference is between `.iloc[ ]` and `.loc[ ]`? 
 
 Let's explore that using the example of the number **3**. 
 
@@ -178,13 +198,13 @@ df.iloc[3]
 
 Pandas returns the data for the app *eBay: Best App to Buy, Sell, Save! Online Shopping*. 
 
-> NOTE: Include image sample for iloc[3] returning eBay data.
+> NOTE: Include image sample for .iloc[3] returning eBay data.
 
 However, if you notice carefully, the *eBay* app appears in the **fourth position** in the original dataframe. 
 
 **Why is this the case?**
 
-Well, it turns out that *.iloc[ ]* is useful for selecting *data by index*. 
+Well, it turns out that `.iloc[ ]` is useful for selecting *data by index*. 
 
 Since Python (like most languages), has zero-indexed arrays, the input value **3** refers to the **fourth** row of the dataset! 
 
@@ -196,13 +216,15 @@ df.loc[3]
 
 In this case, Pandas returns the data for the app *WeatherBug - Local Weather, Radar, Apps, Alerts*. 
 
+> NOTE: Include image sample for loc[3] returning WeatherBug data.
+
 **Why is this the case?**
 
-Simply put, *loc[ ]* is useful for selecting *data by label*. 
+Simply put, `.loc[ ]` is useful for selecting *data by label*. 
 
 This means that the original label of the data as defined by its leftmost column becomes the selection value. 
 
-Therefore, when we ran *df.loc[3]*, rather than selecting the row defined by the third index, it selected the row defined by the number **3** occurring in the leftmost column, which happens to be the second index!
+Therefore, when we ran `df.loc[3]`, rather than selecting the row defined by the third index, it selected the row defined by the number **3** occurring in the leftmost column, which happens to be the second index!
 
 If this seems tricky, don't worry.
 
@@ -226,6 +248,10 @@ Ask yourself the following: *why would both slicing index and label selectors re
 
 ---
 
+> NOTE: Calculate average price/statistic manually to feed into *.describe( )*. 
+
+---
+
 By the way, those selectors seem great, but imagine trying to get general information about your entire dataset that way. 
 
 Seems impractical, right?
@@ -242,9 +268,9 @@ Describing the dataset should display the following:
 
 ![screenshot04_dfdescribe](../media/screenshot04_dfdescribe.png?raw=true)
 
-The *.describe( )* method in Pandas is powerful, but one restriction is that without any specific keyword arguments, it describes and returns descriptive statistics on columns that **only** contain numerical data (ints, floats).
+The `.describe()` method in Pandas is powerful, but one restriction is that without any specific keyword arguments, it describes and returns descriptive statistics on columns that **only** contain numerical data (ints, floats).
 
-If we want to know about trends across our non-numeric data, we can revise the prior *.describe( )* statement to the following:
+If we want to know about trends across our non-numeric data, we can revise the prior `.describe()` statement to the following:
 
 ```py
 df.describe(include="O")
@@ -269,18 +295,24 @@ This isn't that important to us, so we can make the executive judgment to **drop
 df = df.drop("currency", axis="columns")
 ```
 
+> NOTE: Build story around this with introductory question. 
+
 In the last few cells, ever take a look at that 'size_bytes' column? 
 
 Pretty nasty, huh? 
 
-In fact, on our .describe( ) cell above, we see that most data contains 'size_bytes' attributes ranging in the millions. 
+In fact, on our `.describe( )` cell above, we see that most data contains 'size_bytes' attributes ranging in the millions. 
 
 Well, in the real world, we call those Megabytes and can do some quick reformatting to our DataFrame to clean that up a little.
+
+> NOTE: Replace lambda with better (more Pythonic) operation. 
 
 ```py
 df["size_Mb"] = df["size_bytes"].apply(lambda num: np.around(num / 1000000, decimals=2))
 df.drop("size_bytes", axis="columns", inplace=True)
 ```
+
+> NOTE: Place up near slicing. 
 
 Before we go any further, let's take a quick peek at the top of our DataFrame to check the data for any other obvious red flags. 
 
@@ -304,7 +336,7 @@ You should see the following:
 
 ![screenshot07_dftail](../media/screenshot07_dftail.png?raw=true)
 
-Doesn't this look familiar to some of the original commands we played with, including *.describe( )*? 
+Doesn't this look familiar to some of the original commands we played with, including `.describe( )`? 
 
 Pandas is full of these little gems: tools and tricks that optimize certain tasks, like looking at the beginning few elements of a dataset. Use them wisely! 
 
@@ -316,7 +348,7 @@ We're going to rely primarily on SeaBorn visualizations to illustrate its authen
 
 Each of these can also be replicated through MatPlotLib, though it would take much longer. 
 
-### Let's explore the distribution of apps based on byte size.
+### Let's explore the distribution of apps based on file size.
 
 Remember that reformat we did to change 'size_bytes' data to 'size_Mb' data? 
 
@@ -376,7 +408,7 @@ df["price_categories"] = pd.cut(df["price"], BINS, include_lowest=True, labels=L
 
 Now, let's initialize our plotting space in MatPlotLib. 
 
-You'll often see this syntax 'fig, ax' being used. 
+You'll often see this syntax `fig, ax` being used. 
 
 ```py
 fig, axs = plt.subplots(figsize=(10, 5))
@@ -639,17 +671,19 @@ Data Science is a continuous, iterative, and complex process – often involving
 
 Think about some of the questions you ended up answering in this tutorial.
 
-- What's the <strong>average byte size</strong> of mobile apps?
-- How many apps are <strong>free vs. paid</strong>?
-- How many mobile apps are games and what is the general categorical distribution of <strong>apps by genre</strong>?
-- What are the <strong>most popular mobile games</strong> by total popular rating? 
+- What's the **average byte size** of mobile apps?
+- How many apps are **free vs. paid**?
+- How many mobile apps are games and what is the general categorical distribution of **apps by genre**?
+- What are the **most popular mobile games** by total popular rating? 
 
 
-## **Answer these questions in a custom Markdown or text file and be prepared to share your responses with others.**
+## **Answer these questions in a Markdown or text file and be prepared to share your responses with others.**
 
 ---
 
 ## Stretch Challenges
 
-- Come up with at least **five more questions** from the dataset. (You do not have to answer them!)
+> NOTE: Include in tutorial and in stretch how to decide which questions are beyond scope. 
+
+- Come up with at least **five more questions** that could be answered with the dataset. *(You do not have to answer them!)*
 - Explore the SeaBorn documentation and construct at least **one additional unique visualization**. 
