@@ -1,5 +1,7 @@
 ### Welcome to Part 1 of the tutorial series on basic exploratory data science! 
 
+> NOTE: Add realistic scenario to connect to students. 
+
 This tutorial is geared towards introductory data science students at the Make School Product College. 
 
 You should have the following prerequisite skills:
@@ -35,7 +37,6 @@ Consider the following questions as you work through the tutorial:
 As you complete the tutorial, **write down answers you find to these questions** and be sure to ask your own! 
 
 A strong part of data science is being able to formulate critical questions based off of observations you see in unknown data. 
-
 
 ---
 
