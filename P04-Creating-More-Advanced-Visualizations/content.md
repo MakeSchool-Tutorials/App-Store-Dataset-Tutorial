@@ -52,13 +52,24 @@ Let's take a look at the descriptive statistics for our data as a whole so we ca
 df.describe()
 ```
 
+> NOTE: Add .describe() results here.
 
+We can see that we're dealing with mainly numerical integer data through all our Pokémon statistics. Good! No red flags here. 
+
+---
+
+As any basic Pokémon enthusiast understands, two of the most critical stats to look for in any Pokémon are our *Attack* and *Defense* stats, also dubbed **ATK** and **DEF**. 
+
+Let's create a basic Seaborn scatterplot to take a look into the distribution of ATK-DEF stats across our Pokémon! 
 
 ```py
-# Basic Scatterplot Tutorial
 sns.lmplot(x="ATK", y="DEF", data=df)
-# NOTE: Talk about .lmplot() as a regression line function
+```
 
+> NOTE: Show scatterplot results. 
+> NOTE: Talk about `.lmplot()` as a regression line function
+
+```py
 # Improved Scatterplot Tutorial
 sns.lmplot(x="ATK", y="DEF", data=df, fit_reg=False, hue='Stage')
 
