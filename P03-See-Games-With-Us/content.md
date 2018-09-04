@@ -1,3 +1,9 @@
+---
+title: "See Games With Us"
+slug: see-games-with-us
+---
+
+
 ## Part 3: Exploratory Data Science (finale)
 
 ## *See Games With Us*
