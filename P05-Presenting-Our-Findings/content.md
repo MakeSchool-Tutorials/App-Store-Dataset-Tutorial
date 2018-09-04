@@ -1,3 +1,9 @@
+---
+title: "Presenting Our Findings"
+slug: presenting-our-findings
+---
+
+
 ## Part 5: Exploratory Data Science (STRETCH CHALLENGE)
 
 ## Putting It All Together
