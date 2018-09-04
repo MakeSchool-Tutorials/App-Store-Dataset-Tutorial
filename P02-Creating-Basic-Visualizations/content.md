@@ -1,3 +1,9 @@
+---
+title: "Creating Basic Visualizations"
+slug: creating-basic-visualizations
+---
+
+
 ## Part 2: Exploratory Data Science (cont'd) 
 
 ## Basic Visualizations
