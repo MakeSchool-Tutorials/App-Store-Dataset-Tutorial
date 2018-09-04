@@ -1,3 +1,8 @@
+---
+title: "Checking out our data!"
+slug: checking-out-our-data
+---
+
 ### Welcome to Part 1 of the tutorial series on basic exploratory data science! 
 
 > NOTE: Add realistic scenario to connect to students. 
