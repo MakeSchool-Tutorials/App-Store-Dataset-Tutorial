@@ -1,3 +1,9 @@
+---
+title: "More Advanced Vizualizations"
+slug: more-advanced-visualizations
+---
+
+
 ## Part 4: Exploratory Data Science (STRETCH CHALLENGE)
 
 ## More Advanced Visualizations
