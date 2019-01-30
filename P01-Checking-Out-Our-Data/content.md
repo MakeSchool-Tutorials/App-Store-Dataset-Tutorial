@@ -74,7 +74,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # SeaBorn is a library for advanced data visualization
-import seaborn as sb
+import seaborn as sns
 ```
 
 Here, we run some basic setup for some visualization work in SeaBorn and MatPlotLib.
@@ -82,11 +82,11 @@ Here, we run some basic setup for some visualization work in SeaBorn and MatPlot
 Don't worry about what this all means now: simply <u>plug this into your next cell</u> for some data visualization setup.
 
 ```py
-sb.set(style="white", context="notebook", palette="deep")
+sns.set(style="white", context="notebook", palette="deep")
 
 COLOR_COLUMNS = ["#66C2FF", "#5CD6D6", "#00CC99", "#85E085", "#FFD966", "#FFB366", "#FFB3B3", "#DAB3FF", "#C2C2D6"]
 
-sb.set_palette(palette=COLOR_COLUMNS, n_colors=4)
+sns.set_palette(palette=COLOR_COLUMNS, n_colors=4)
 ```
 
 ## Setting up our DataFrame
