@@ -82,11 +82,11 @@ Here, we run some basic setup for some visualization work in SeaBorn and MatPlot
 Don't worry about what this all means now: simply <u>plug this into your next cell</u> for some data visualization setup.
 
 ```py
-sns.set(style="white", context="notebook", palette="deep")
+sb.set(style="white", context="notebook", palette="deep")
 
 COLOR_COLUMNS = ["#66C2FF", "#5CD6D6", "#00CC99", "#85E085", "#FFD966", "#FFB366", "#FFB3B3", "#DAB3FF", "#C2C2D6"]
 
-sns.set_palette(palette=COLOR_COLUMNS, n_colors=4)
+sb.set_palette(palette=COLOR_COLUMNS, n_colors=4)
 ```
 
 ## Setting up our DataFrame
@@ -96,7 +96,7 @@ sns.set_palette(palette=COLOR_COLUMNS, n_colors=4)
 Here, we can use Bash commands preceded by a percentage sign (%) to check our current directory location.
 
 ```py
-% ls
+%ls
 ```
 
 Next, we can run the following Bash command preceded by '%' to navigate to our raw data file. 
@@ -106,7 +106,7 @@ After running the next cell, run the previous cell to <i>see reflected changes i
 ```py
 # NOTE: BASH COMMANDS IN JUPYTER (cont'd)
 
-% cd ../datasets/
+%cd ../datasets/
 ```
 
 Sweet! Let's reset now.
@@ -114,7 +114,7 @@ Sweet! Let's reset now.
 Run the following command to navigate to the last location: the <strong>starting directory from where this notebook was launched</strong>. 
 
 ```py
-% cd -
+%cd -
 ```
 
 Here, we'll grab our file (`AppleStore.csv`) and call it as a <strong>DataFrame</strong> – a Pandas-specific array-like object that's very useful for visually representing and interpreting data in a programmatic manner.
