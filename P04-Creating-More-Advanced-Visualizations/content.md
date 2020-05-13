@@ -3,32 +3,29 @@ title: "More Advanced Vizualizations"
 slug: more-advanced-visualizations
 ---
 
+# More Advanced Visualizations
 
-## Part 4: Exploratory Data Science (STRETCH CHALLENGE)
+Part 4: Exploratory Data Science (STRETCH CHALLENGE)
 
-## More Advanced Visualizations
-
-Let's move on to new, more exciting datasets - data surrounded in pop culture and a captivation to any 90's kids out there! 
+Let's move on to new, more exciting datasets - data surrounded in pop culture and a captivation to any 90's kids out there!
 
 That's right, it's time to play with **Pokémon**!
 
-> NOTE: Insert Pokemon image here. 
+For this tutorial, we'll mainly be using Seaborn to develop some advanced visualizations.
 
-For this tutorial, we'll mainly be using Seaborn to develop some advanced visualizations. 
+We'll follow the same process of question-driven data analysis and processing, but with a significant step up for this particular dataset: we'll assume that our data is *already cleaned and processed*.
 
-We'll follow the same process of question-driven data analysis and processing, but with a significant step up for this particular dataset: we'll assume that our data is *already cleaned and processed*. 
+Let's take a look at our data!
 
-Let's take a look at our data! 
-
-You can access the [Pokémon (First-Generation)](https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv) dataset here! No need to download or set anything up; if you followed the setup instructions correctly, you should have the dataset already downloaded in your local directory! 
+You can access the [Pokémon (First-Generation)](https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv) dataset here! No need to download or set anything up; if you followed the setup instructions correctly, you should have the dataset already downloaded in your local directory!
 
 Let's jump right in!
 
----
+# Pokedeck
 
 Open up a new Jupyter Notebook and title it something like `pokemon_EDA.ipynb`.
 
-In our first cell, let's immediately run our basic setup. 
+In our first cell, let's immediately run our basic setup.
 
 ```py
 import pandas as pd
@@ -48,7 +45,7 @@ df = pd.read_csv('datasets/pokemon.csv', index_col=0)
 df.head()
 ```
 
-> NOTE: 
+> NOTE:
 
 As you may recall. the `.head()` function in Pandas allows us to peek at the first five rows in any dataset. Handy, huh?
 
@@ -60,19 +57,19 @@ df.describe()
 
 > NOTE: Add .describe() results here.
 
-We can see that we're dealing with mainly numerical integer data through all our Pokémon statistics. Good! No red flags here. 
+We can see that we're dealing with mainly numerical integer data through all our Pokémon statistics. Good! No red flags here.
 
----
+# Attack and Defense 
 
-As any basic Pokémon enthusiast understands, two of the most critical stats to look for in any Pokémon are our *Attack* and *Defense* stats, also dubbed **ATK** and **DEF**. 
+As any basic Pokémon enthusiast understands, two of the most critical stats to look for in any Pokémon are our *Attack* and *Defense* stats, also dubbed **ATK** and **DEF**.
 
-Let's create a basic Seaborn scatterplot to take a look into the distribution of ATK-DEF stats across our Pokémon! 
+Let's create a basic Seaborn scatterplot to take a look into the distribution of ATK-DEF stats across our Pokémon!
 
 ```py
 sns.lmplot(x="ATK", y="DEF", data=df)
 ```
 
-> NOTE: Show scatterplot results. 
+> NOTE: Show scatterplot results.
 > NOTE: Talk about `.lmplot()` as a regression line function
 
 ```py
@@ -116,15 +113,15 @@ sns.swarmplot(x="Type 1", y="ATK", data=df, palette=pokemon_palette)
 # Creating an Overlayed Violin-Swarm Plot
 plt.figure(figsize=(10,6))
 sns.violinplot(x="Type 1",
-               y="ATK", 
-               data=df, 
+               y="ATK",
+               data=df,
                inner=None,
                palette=pokemon_palette)
-sns.swarmplot(x="Type 1", 
-              y="ATK", 
-              data=df, 
-              color='k', 
-              alpha=0.7) 
+sns.swarmplot(x="Type 1",
+              y="ATK",
+              data=df,
+              color='k',
+              alpha=0.7)
 plt.title("Attack by Type")
 
 # Creating a correlation heatmap of stats
@@ -139,9 +136,9 @@ sns.countplot(x="Type 1", data=df, palette=pokemon_palette)
 plt.xticks(rotation=-45)
 
 # Creating a Factor Plot
-viz = sns.factorplot(x="Type 1", 
-                   y="ATK", 
-                   data=df, 
+viz = sns.factorplot(x="Type 1",
+                   y="ATK",
+                   data=df,
                    hue="Stage",
                    col="Stage",
                    kind="swarm")
@@ -153,5 +150,5 @@ sns.kdeplot(df.Attack, df.Defense)
 # Creating a Joint Distribution Plot
 sns.jointplot(x="ATK", y="DEF", data=df)
 
-> NOTE: Add more Seaborn tutorials here! 
+> NOTE: Add more Seaborn tutorials here!
 ```
