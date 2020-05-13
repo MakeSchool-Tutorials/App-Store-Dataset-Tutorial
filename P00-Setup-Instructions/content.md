@@ -30,4 +30,4 @@ Jupyter Notebooks are an industry standard for simultaneously manipulating and p
 
 Watch this video and follow along with it. By the end, you should have created a Jupyter notebook that looks like the one in the video.
 
-![juypter-notebook-youtube-video](https://www.youtube.com/watch?v=HW29067qVWk)
+![ms-video-youtube](https://www.youtube.com/watch?v=HW29067qVWk)
