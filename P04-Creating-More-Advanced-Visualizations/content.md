@@ -41,7 +41,7 @@ Now, let's take a look at our data!
 Run the following in a new cell:
 
 ```py
-df = pd.read_csv('datasets/pokemon.csv', index_col=0)
+df = pd.read_csv('datasets/pokemon.csv', index_col=0, encoding='ISO-8859–1')
 df.head()
 ```
 
